@@ -8,16 +8,49 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
+                    <button 
+                        class="btn btn-primary btn-lg" 
+                        data-toggle="modal" 
+                        data-target="#addModal" 
+                        type="button" 
+                        name="button">
+                        Add Bookmark
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<div class="modal" tabindex="-1" role="dialog" id="addModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+            </button>
+          <h4 class="modal-title">Add bookmark</h4>
+        </div>
+        <div class="modal-body">
+            <form action="{{route('bookmarks.store')}}" method="post">
+                {{csrf_field()}}
+                <div>
+                    <label>Bookmark Name</label>
+                    <input type="text" class="form-control" name="name">
+                </div>
+                <div>
+                    <label>Bookmark URL</label>
+                    <input type="text" class="form-control" name="url">
+                </div>
+                <div>
+                    <label>Website Description</label>
+                    <textarea class="form-control" name="description"></textarea>
+                </div>
+                <br />
+                <input type="submit" name="submit" value="Submit" class="btn btn-success">
+            </form>
+        </div>        
+      </div>
+    </div>
+  </div>
 @endsection
