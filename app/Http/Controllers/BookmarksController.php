@@ -16,6 +16,9 @@ class BookmarksController extends Controller
     }
 
     public function store(Request $request) {
-        return;
+        $this->validate($request, [
+            'name' => 'required',
+            'url' => 'required'
+        ]);
     }
 }

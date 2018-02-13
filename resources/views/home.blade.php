@@ -8,6 +8,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
+                    @include('inc.messages')
                     <button 
                         class="btn btn-primary btn-lg" 
                         data-toggle="modal" 
